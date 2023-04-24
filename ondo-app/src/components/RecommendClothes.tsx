@@ -43,18 +43,24 @@ export default function RecommendClothing({ temperature }: RecommendClothesProps
 
   return (
     <section>
-      <ul className='flex flex-wrap gap-6'>
-        {randomRecommendations?.map((item, index) => {
-          return (
-            <FadeIn delay={index * 300} key={index}>
-              <li>{item}</li>
-            </FadeIn>
-          );
-        })}
-      </ul>
-      <div className='mt-8 mb-4 font-semibold text-center'>
-        추천 옷차림은 기온에 따라 다를 수 있습니다!
-      </div>
+      {randomRecommendations.length > 0 ? (
+        <>
+          <ul className='flex flex-wrap gap-6'>
+            {randomRecommendations?.map((item, index) => {
+              return (
+                <FadeIn delay={index * 300} key={index}>
+                  <li>{item}</li>
+                </FadeIn>
+              );
+            })}
+          </ul>
+          <div className='mt-8 mb-4 font-semibold text-center'>
+            추천 옷차림은 기온에 따라 다를 수 있습니다!
+          </div>
+        </>
+      ) : (
+        <div>추천 옷차림 정보가 없습니다.</div>
+      )}
     </section>
   );
 }

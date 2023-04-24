@@ -13,8 +13,8 @@ interface MainContainerProps {
   isError: boolean;
   result?: string;
   setResult: React.Dispatch<React.SetStateAction<string | undefined>>;
-  response: string;
-  temperature: number; // temperature 추가
+  response: string[];
+  temperature: number;
 }
 
 export default function MainContainer({
@@ -24,17 +24,16 @@ export default function MainContainer({
   result,
   setResult,
   response,
+  temperature,
 }: MainContainerProps) {
   const [inputValue, setInputValue] = useState('');
-  const [temperature, setTemperature] = useState(0);
 
   const onTemperatureChange = (e: ChangeEvent<HTMLInputElement>) => {
     const temperature = parseInt(e.target.value);
     if (!isNaN(temperature)) {
-      setTemperature(temperature);
+      onSubmit(inputValue, temperature); // onSubmit 함수 호출
     }
   };
-
 
   const { mutate } = useMutation(
     ['gpt', inputValue, temperature.toString()],
@@ -111,7 +110,7 @@ export default function MainContainer({
 
         {response.length > 0 && (
           <FadeIn>
-           <RecommendClothes response={[response]} temperature={temperature} /> // temperature props 추가
+          <RecommendClothes response={response} temperature={temperature} />
           </FadeIn>
         )}
 

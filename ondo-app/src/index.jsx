@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '/ondo-app/src/index';
 
 function App() {
   const [messageInput, setMessageInput] = useState('');
