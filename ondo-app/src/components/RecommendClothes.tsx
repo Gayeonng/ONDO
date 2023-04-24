@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import FadeIn from './FadeIn';
 
-interface Props {
-  temperature: number | null;
+interface RecommendClothesProps {
+  response: string[];
+  temperature: number;
 }
 
 enum ClothingRecommendation {
@@ -29,7 +30,7 @@ function getClothingRecommendation(temperature: number | null): string[] {
   }
 }
 
-export default function RecommendClothing({ temperature }: Props) {
+export default function RecommendClothing({ temperature }: RecommendClothesProps) {
   const [recommendation, setRecommendation] = useState<string[]>([]);
 
   useEffect(() => {

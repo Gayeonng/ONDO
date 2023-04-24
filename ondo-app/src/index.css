@@ -9,14 +9,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f9fafb;
+  background-color: #d2e8ff;
 }
 
 #message-input {
   display: block;
   margin: 20px auto;
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 2px solid #bbbbbb;
   border-radius: 4px;
   font-size: 1.2rem;
 }
